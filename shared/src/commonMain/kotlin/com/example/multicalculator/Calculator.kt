@@ -1,25 +1,25 @@
 package com.example.multicalculator
 
 class Calculator{
-    fun Add(
+    fun add(
         left: Int,
         right: Int
     ): Int {
         return left + right
     }
-    fun Subtract(
+    fun subtract(
         left: Int,
         right: Int
     ): Int {
         return left - right
     }
-    fun Division(
+    fun division(
         left: Int,
         right: Int
     ): Int {
         return left / right
     }
-    fun Multiplication(
+    fun multiplication(
         left: Int,
         right: Int
     ): Int {
