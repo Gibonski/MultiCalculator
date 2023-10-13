@@ -40,6 +40,22 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+
+@Composable
+fun GreetingView(text: String) {
+    Text(text = text)
+}
+
+
+
+@Composable
+fun DefaultPreview() {
+    MyApplicationTheme {
+        GreetingView("Hello, Android!")
+    }
+}
+@Preview
 @Composable
 fun CalcView(){
 
@@ -81,17 +97,3 @@ fun CalcEqualsButton(){
     }
 }
 
-
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
-
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        GreetingView("Hello, Android!")
-    }
-}
