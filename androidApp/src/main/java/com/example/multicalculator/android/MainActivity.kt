@@ -18,7 +18,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -47,12 +49,18 @@ fun CalcRow(){
 
 }
 @Composable
-fun CalcDisplay(){
+fun CalcDisplay(display: MutableState<String>){
+    Text(display.value, modifier = Modifier.padding(5.dp).height(50.dp))
 
 }
 @Composable
 fun CalcNumericButton(){
-val number = remember {mutableStateOf("display")}
+val number = Int; remember {mutableStateOf("display")}
+    ElevatedButton(modifier = Modifier.padding(4.dp),
+        onClick = {}
+    ) {
+        Text("")
+    }
 }
 @Composable
 fun CalcOperationButton(){
