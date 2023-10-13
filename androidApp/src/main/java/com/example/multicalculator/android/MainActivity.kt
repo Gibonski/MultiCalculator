@@ -6,10 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.multicalculator.Greeting
-
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.ElevatedButton
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +44,14 @@ fun CalcNumericButton(){
 fun CalcOperationButton(){
 
 }
+@Composable
 fun CalcEqualsButton(){
-
+    val expanded = mutableStateOf("display")
+    ElevatedButton(
+        onClick = {0}
+    ) {
+        Text("=")
+    }
 }
 
 
