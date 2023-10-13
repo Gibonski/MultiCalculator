@@ -3,6 +3,7 @@ package com.example.multicalculator.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -18,12 +19,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,15 +62,27 @@ fun DefaultPreview() {
 @Preview
 @Composable
 fun CalcView(){
+    val displayText = remember {mutableStateOf("")}
+    Column(modifier = Modifier.background(Color.LightGray)) {
+
+    }
 
 }
 @Composable
 fun CalcRow(display: MutableState<String>, startNum: Int, numButtons: Int){
+val endNum = startNum + numButtons
+    Row(modifier = Modifier.padding(0.dp)) {
+        for (i in startNum until endNum) {
+            CalcNumericButton(number = i, display = display)
+        }
 
+    }
 }
 @Composable
 fun CalcDisplay(display: MutableState<String>){
-    Text(display.value, modifier = Modifier.padding(5.dp).height(50.dp))
+    Text(display.value, modifier = Modifier
+        .padding(5.dp)
+        .height(50.dp))
 
 }
 @Composable
@@ -74,7 +90,7 @@ fun CalcNumericButton(number: Int, display: MutableState<String>){
     ElevatedButton(modifier = Modifier.padding(4.dp),
         onClick = {}
     ) {
-        Text("")
+        Text("+")
     }
 }
 @Composable
