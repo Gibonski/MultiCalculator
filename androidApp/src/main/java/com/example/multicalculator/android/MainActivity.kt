@@ -25,11 +25,30 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+@Composable
+fun CalcView(){
+
+}
+fun CalcRow(){
+
+}
+fun CalcDisplay(){
+
+}
+fun CalcNumericButton(){
+
+}
+fun CalcOperationButton(){
+
+}
+
+
 
 @Composable
 fun GreetingView(text: String) {
     Text(text = text)
 }
+
 
 @Preview
 @Composable
