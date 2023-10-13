@@ -51,7 +51,15 @@ fun CalcView(){
     val displayText = remember {mutableStateOf("")}
     Column(modifier = Modifier.background(Color.LightGray)) {
         Row {
+            CalcDisplay(display = displayText)
+                    }
+        Row {
+            Column {
 
+            }
+            Column {
+
+            }
         }
 
     }
