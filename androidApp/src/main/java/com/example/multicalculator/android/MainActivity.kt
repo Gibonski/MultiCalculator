@@ -61,7 +61,7 @@ fun CalcView(){
 
 }
 @Composable
-fun CalcRow(){
+fun CalcRow(display: MutableState<String>, startNum: Int, numButtons: Int){
 
 }
 @Composable
@@ -70,8 +70,7 @@ fun CalcDisplay(display: MutableState<String>){
 
 }
 @Composable
-fun CalcNumericButton(){
-val number = Int; remember {mutableStateOf("display")}
+fun CalcNumericButton(number: Int, display: MutableState<String>){
     ElevatedButton(modifier = Modifier.padding(4.dp),
         onClick = {}
     ) {
@@ -79,8 +78,7 @@ val number = Int; remember {mutableStateOf("display")}
     }
 }
 @Composable
-fun CalcOperationButton(){
-    val operation = remember {mutableStateOf("display")}
+fun CalcOperationButton(operation: MutableState<String>, display: MutableState<String>){
     ElevatedButton(modifier = Modifier.padding(4.dp),
         onClick = {}
     ) {
@@ -88,8 +86,7 @@ fun CalcOperationButton(){
     }
 }
 @Composable
-fun CalcEqualsButton(){
-    val expanded = remember {mutableStateOf("display")}
+fun CalcEqualsButton(display: MutableState<String>){
     ElevatedButton(modifier = Modifier.padding(4.dp),
         onClick = {0}
     ) {
