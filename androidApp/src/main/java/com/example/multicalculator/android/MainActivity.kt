@@ -42,14 +42,17 @@ class MainActivity : ComponentActivity() {
 fun CalcView(){
 
 }
+@Composable
 fun CalcRow(){
 
 }
+@Composable
 fun CalcDisplay(){
 
 }
+@Composable
 fun CalcNumericButton(){
-
+val number = remember {mutableStateOf("display")}
 }
 @Composable
 fun CalcOperationButton(){
