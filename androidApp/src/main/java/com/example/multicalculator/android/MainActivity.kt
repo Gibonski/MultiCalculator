@@ -27,7 +27,7 @@ import androidx.compose.runtime.MutableState
 //import androidx.compose.runtime.setValue
 //import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
-
+import androidx.compose.foundation.layout.fillMaxWidth
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,16 +48,30 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun CalcView(){
-    val displayText = remember {mutableStateOf("")}
+    val displayText = remember {mutableStateOf("0")}
+
     Column(modifier = Modifier.background(Color.LightGray)) {
         Row {
             CalcDisplay(display = displayText)
                     }
         Row {
-            Column {
+            Column {for (i in 7 downTo 1 step 3) {
+                CalcRow(displayText, i, 3)
+
+            }
+                Row {
+                    CalcNumericButton(0, displayText)
+                    CalcEqualsButton(displayText)
+                }
 
             }
             Column {
+
+                CalcOperationButton("+", displayText)
+                CalcOperationButton("-", displayText)
+                CalcOperationButton("*", displayText)
+                CalcOperationButton("/", displayText)
+
 
             }
         }
@@ -70,32 +84,36 @@ fun CalcRow(display: MutableState<String>, startNum: Int, numButtons: Int){
     val endNum = startNum + numButtons
     Row(modifier = Modifier.padding(0.dp)) {
         for (i in startNum until endNum) {
-            CalcNumericButton(number = i, display = display)
+            CalcNumericButton(i, display)
         }
 
     }
 }
 @Composable
 fun CalcDisplay(display: MutableState<String>){
-    Text(display.value, modifier = Modifier
+    Text(text = display.value, modifier = Modifier
         .padding(5.dp)
-        .height(50.dp))
+        .height(50.dp)
+        .fillMaxWidth()   )
+
 
 }
 @Composable
 fun CalcNumericButton(number: Int, display: MutableState<String>){
     ElevatedButton(modifier = Modifier.padding(4.dp),
-        onClick = {}
+        onClick = {
+            display.value += number.toString()}
     ) {
-        Text("+")
+        Text(text = number.toString())
     }
 }
 @Composable
-fun CalcOperationButton(operation: MutableState<String>, display: MutableState<String>){
+fun CalcOperationButton(operation: String, display: MutableState<String>){
+    display.value = operation
     ElevatedButton(modifier = Modifier.padding(4.dp),
         onClick = {}
     ) {
-        Text("")
+        Text( text = operation)
     }
 }
 @Composable
