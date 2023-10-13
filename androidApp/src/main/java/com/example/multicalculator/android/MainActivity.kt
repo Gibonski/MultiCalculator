@@ -13,6 +13,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.multicalculator.Greeting
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +43,18 @@ fun CalcDisplay(){
 fun CalcNumericButton(){
 
 }
+@Composable
 fun CalcOperationButton(){
-
+    val operation = remember {mutableStateOf("display")}
+    ElevatedButton(
+        onClick = {0}
+    ) {
+        Text("=")
+    }
 }
 @Composable
 fun CalcEqualsButton(){
-    val expanded = mutableStateOf("display")
+    val expanded = remember {mutableStateOf("display")}
     ElevatedButton(
         onClick = {0}
     ) {
