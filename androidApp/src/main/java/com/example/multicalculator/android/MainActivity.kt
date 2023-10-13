@@ -17,6 +17,11 @@ import androidx.compose.material3.ElevatedButton
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.Button
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +54,7 @@ fun CalcNumericButton(){
 @Composable
 fun CalcOperationButton(){
     val operation = remember {mutableStateOf("display")}
-    ElevatedButton(
+    ElevatedButton(modifier = Modifier.padding(4.dp),
         onClick = {}
     ) {
         Text("")
@@ -58,7 +63,7 @@ fun CalcOperationButton(){
 @Composable
 fun CalcEqualsButton(){
     val expanded = remember {mutableStateOf("display")}
-    ElevatedButton(
+    ElevatedButton(modifier = Modifier.padding(4.dp),
         onClick = {0}
     ) {
         Text("=")
